@@ -55,13 +55,15 @@ module.exports = {
         this.user_session.groupId = this.event.source.groupId;
       } else if (this.event.source.type === 'room') {
         this.user_session.groupId = this.event.source.roomId;
+      } else {
+        this.user_session.groupId = 'unknown';
       }
     }
 
     if (this.user_session.name === '') {
       this.client
         .getProfile(this.user_session.id)
-        .then((profile) =>{
+        .then((profile) => {
           this.user_session.name = profile.displayName;
           this.saveUserData(this.user_session);
           this.forwardProcess();
@@ -87,7 +89,7 @@ module.exports = {
     const request = require('request');
     var url       = this.base_url;
     url          += '&action=saveGroup';
-    url          += '&data=' + escape(JSON.stringify(group_session));
+    url          += '&data=' + JSON.stringify(group_session);
 
     request (url, function(error, response, body) {
       console.log(body);
@@ -98,7 +100,7 @@ module.exports = {
     const request = require('request');
     var url       = this.base_url;
     url          += '&action=saveUser';
-    url          += '&data=' + escape(JSON.stringify(user_session));
+    url          += '&data=' + JSON.stringify(user_session);
 
     request (url, function(error, response, body) {
       console.log(body);

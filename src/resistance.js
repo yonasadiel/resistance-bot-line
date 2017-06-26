@@ -203,7 +203,7 @@ module.exports = {
     this.saveGroupData();
     this.saveUserData();
 
-    let reply_text = 'User ' + this.user_session.name + ' has joined.\n';
+    let reply_text = 'User ' + this.user_session.name + ' joins the game.\n';
     if (this.group_session.players.length >= 5) {
       reply_text += 'There is enough player to start the game.\n';
       reply_text += 'Use !start to start the game.\n';
