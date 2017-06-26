@@ -239,7 +239,7 @@ module.exports = {
     this.saveUserData();
 
     let reply_text = 'User ' + name + ' left the game\n';
-    reply_text += this.sendPlayerList();
+    //reply_text += this.sendPlayerList();
     this.sendResponse(reply_text);
   },
 
