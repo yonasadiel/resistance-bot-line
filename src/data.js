@@ -12,7 +12,7 @@ module.exports = {
     this.args   = args;
 
     if (! this.event.source.hasOwnProperty('userId')) {
-      return this.sendResponse('You have to add this bot first.');
+      return this.sendResponse('This bot only support LINE version 7.5.0 or higher');
     }
 
     this.searchUser(this.event.source.userId);
