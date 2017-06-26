@@ -31,7 +31,7 @@ module.exports = {
   invalidCommand : function() {
     let reply_text = '';
     reply_text += 'Invalid Command';
-    return client.replyMessage(reply_text);
+    return this.client.replyMessage(reply_text);
   },
 
   aboutCommand : function() {
@@ -39,7 +39,7 @@ module.exports = {
     reply_text = 'Resistance Game!\n';
     // todo : make a help text
     //        link into github guide
-    return client.replyMessage(help_text);
+    return this.client.replyMessage(help_text);
   },
 
   helpCommand : function() {
