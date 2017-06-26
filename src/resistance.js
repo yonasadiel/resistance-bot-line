@@ -305,7 +305,7 @@ module.exports = {
     } else {
       this.saveGroupData();
 
-      let remTeam = numOfTeam[this.group_session.length][this.group_session.round] - count_chosen_player;
+      let remTeam = numOfTeam[this.group_session.players.length][this.group_session.round] - count_chosen_player;
       let reply_text = this.group_session.players[chosen_player_index].name;
       reply_text += ' has been added.\n';
       reply_text += 'Use !list to check chosen team member\n';
