@@ -11,7 +11,7 @@ module.exports = {
     this.event  = event;
     this.args   = args;
 
-    if (! this.event.source.hasOwnProperty(userId)) {
+    if (! this.event.source.hasOwnProperty('userId')) {
       return this.sendResponse('You have to add this bot first.');
     }
 
