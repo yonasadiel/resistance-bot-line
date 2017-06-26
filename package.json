@@ -1,0 +1,29 @@
+{
+  "name": "resistance-bot-line",
+  "version": "1.0.0",
+  "description": "Resistance Bot for Line Messenger",
+  "main": "index.js",
+  "scripts": {
+    "test": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yonasadiel/resistance-bot-line.git"
+  },
+  "keywords": [
+    "line",
+    "bot",
+    "resistance"
+  ],
+  "author": "Yonas Adiel",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yonasadiel/resistance-bot-line/issues"
+  },
+  "homepage": "https://github.com/yonasadiel/resistance-bot-line#readme",
+  "dependencies": {
+    "@line/bot-sdk": "^2.0.0",
+    "express": "^4.15.3",
+    "request": "^2.81.0"
+  }
+}
