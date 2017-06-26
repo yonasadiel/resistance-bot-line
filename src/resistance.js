@@ -225,9 +225,6 @@ module.exports = {
     } else if (this.group_session.state !== 'new') {
       return this.sendResponse('Game is already running');
     }
-    if (this.indexOfPlayer() === -1) {
-      return this.sendResponse('You are not registered as players');
-    }
 
     let name = this.user_session.name;
     for (var i = this.indexOfPlayer(); i<this.group_session.players.length-1; i++) {
@@ -428,6 +425,7 @@ module.exports = {
 
   indexOfPlayer : function() {
     let found = -1;
+    console.log(this.user_session);
     this.group_session.players.forEach(function(item, index) {
       if (item.id === this.user_session.id) {
         found = index;
