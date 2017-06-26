@@ -24,7 +24,6 @@ module.exports = {
   },
 
   searchUserCallback : function(error, response, body) {
-    console.log(body);
     this.user_session = JSON.parse(body);
 
     if (this.event.source.type === 'group') {
@@ -49,7 +48,6 @@ module.exports = {
   },
 
   searchGroupCallback : function(error, response, body) {
-    console.log(body);
     this.group_session = JSON.parse(body);
 
     if (this.user_session.groupId === '') {
@@ -108,16 +106,16 @@ module.exports = {
   },
 
   resetAllPlayers : function(players) {
-    players.forEach(function(item, index) {
+    for (var i in players) {
       let reset_player = {
-        id      : item.id,
+        id      : players[i].id,
         status  : 'inactive',
-        groupId : item.groupId,
-        name    : item.name
+        groupId : players[i].groupId,
+        name    : players[i].name
       };
 
       this.saveUserData(reset_player);
-    });
+    }
   },
 	
 }
