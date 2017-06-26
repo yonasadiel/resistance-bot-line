@@ -61,7 +61,7 @@ module.exports = {
     }
 
     if (this.user_session.name === '') {
-      client
+      this.client
         .getProfile(this.user_session.id)
         .then((profile) =>{
           this.saveUserData(this.user_session);
