@@ -266,8 +266,8 @@ module.exports = {
     this.randomSpy();
 
     let reply_text = 'The Game begins!\n';
-    reply_text += 'You can check your role by PM "!role" to me';
-    this.startNewRound('');
+    reply_text += 'You can check your role by PM "!role" to me\n\n';
+    this.startNewRound(reply_text);
   },
 
   chooseCommand : function() {

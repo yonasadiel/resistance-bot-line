@@ -123,11 +123,11 @@ module.exports = {
 
   indexOfPlayer : function() {
     let found = -1;
-    this.group_session.players.forEach(function(item, index) {
-      if (item.id === this.user_session.id) {
-        found = index;
+    for (var i in this.group_session.players) {
+      if (this.group_session.players[i].id === this.user_session.id) {
+        found = i;
       }
-    });
+    }
 
     return found;
   },
