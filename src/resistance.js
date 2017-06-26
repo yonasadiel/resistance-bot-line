@@ -139,8 +139,9 @@ module.exports = {
       return this.sendResponse('You are playing the game in other group.');
     }
 
-    this.group_session.state = 'new';
-    this.user_session.status - 'active';
+    this.group_session.state  = 'new';
+    this.user_session.status  = 'active';
+    this.user_session.groupId = this.group_session.groupId;
 
     this.group_session.players = [];
     this.addPlayer({
@@ -198,7 +199,8 @@ module.exports = {
       mission : 'inactive',
       vote    : 'done',
     });
-    this.user_session.status = 'active';
+    this.user_session.status  = 'active';
+    this.user_session.groupId = this.group_session.groupId;
 
     this.saveGroupData();
     this.saveUserData();
@@ -425,7 +427,6 @@ module.exports = {
 
   indexOfPlayer : function() {
     let found = -1;
-    console.log(this.user_session);
     for (var i in this.group_session.players) {
       if (this.group_session.players[i].id === this.user_session.id) {
         found = i;

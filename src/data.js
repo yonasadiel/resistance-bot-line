@@ -69,9 +69,19 @@ module.exports = {
           this.forwardProcess();
         });
     } else {
-      this.saveUserData(this.user_session);
-      this.forwardProcess();
+      this.saveUserDataInitial(this.user_session);
     }
+  },
+
+  saveUserDataInitial : function(user_session) {
+    const request = require('request');
+    var url       = this.base_url;
+    url          += '&action=saveUser';
+    url          += '&data=' + JSON.stringify(user_session);
+
+    request (url, function(error, response, body) {
+      this.forwardProcess();
+    });
   },
 
   forwardProcess : function() {
