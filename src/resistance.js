@@ -354,9 +354,12 @@ module.exports = {
       this.group_session.vote.disagree++;
     }
 
-    let disagree_vote_needed = Math.round(this.group_session.players.length / 2) - this.group_session.vote.disagree;
-    let agree_vote_needed    = this.group_session.players.length - disagree_vote_needed + 1 - this.group_session.vote.agree;
+    let disagree_vote_needed = Math.round(this.group_session.players.length / 2);
+    let agree_vote_needed    = this.group_session.players.length - disagree_vote_needed + 1;
 
+    disagree_vote_needed -= this.group_session.vote.disagree;
+    agree_vote_needed    -= this.group_session.vote.agree;
+    
     if (agree_vote_needed === 0) {
       this.startMission();
     } else if (disagree_vote_needed === 0) {
