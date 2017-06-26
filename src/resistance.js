@@ -58,6 +58,8 @@ module.exports = {
         return this.roleCommand();
       case '!mission' :
         return this.missionCommand();
+      case '!cmd' :
+        return this.commandCommand();
       default:
         return this.invalidCommand();
     }
@@ -74,9 +76,20 @@ module.exports = {
   aboutCommand : function() {
     let reply_text = '';
     reply_text = 'Resistance Game!\n';
-    // todo : make a help text
-    //        link into github guide
-    return this.sendResponse(help_text);
+    reply_text += 'Read guide in https://github.com/yonasadiel/resistance-bot-line\n\n';
+    reply_text += 'Thanks to Leo Widyatma, Kevin Basuki, Susilo Dinoto, Abiyoso Hartono, and Dedi Pradipta';
+    reply_text += ' who patiently help me debug this game.';
+    return this.sendResponse(reply_text);
+  },
+
+  commandCommand : function() {
+    let reply_text = '';
+    reply_text += 'List of commands:\n';
+    reply_text += 'about, help, player, new, join, cancel, ';
+    reply_text += 'start, choose, list, vote, check, stop, ';
+    reply_text += 'role, mission, score, cmd';
+
+    this.sendResponse(reply_text);
   },
 
   helpCommand : function() {
@@ -359,7 +372,7 @@ module.exports = {
 
     disagree_vote_needed -= this.group_session.vote.disagree;
     agree_vote_needed    -= this.group_session.vote.agree;
-    
+
     if (agree_vote_needed === 0) {
       this.startMission();
     } else if (disagree_vote_needed === 0) {
@@ -398,7 +411,7 @@ module.exports = {
     } else {
       let cnt = 1;
       let reply_text = '';
-      reply_text += done_mission + ' has completed the mession.';
+      reply_text += done_mission + ' has completed the mission.';
       reply_text += ' ' + left_mission + ' left:\n';
       this.group_session.players.forEach(function(item, index) {
         if (item.mission === 'pending') {
@@ -425,6 +438,17 @@ module.exports = {
   missionCommand : function() {
     this.sendResponse('Use this in PM! Nobody should know your result.');
     //
+  },
+
+  scoreCommand : function() {
+    if (this.group_session.state !== 'idle') {
+      return this.sendResponse('There is no game running');
+    }
+
+    let reply_text = 'Score:\n';
+    reply_text += '- Resistance : ' + this.group_session.score.resistance + '\n';
+    reply_text += '- Spy : '        + this.group_session.score.spy        + '\n';
+    this.sendResponse(reply_text);
   },
 
   /*** OPERATION LIST ***/
