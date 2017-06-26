@@ -11,7 +11,6 @@ module.exports = {
     this.event  = event;
     this.args   = args;
 
-    console.log(JSON.stringify(args));
     this.searchUser(this.event.source.userId);
   },
 

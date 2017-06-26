@@ -30,6 +30,7 @@ function handleEvent(event) {
   if (event.message.text.startsWith(config.commandSymbol)) {
 
     var args = event.message.text.split(" ");
+    console.log(JSON.stringify(args));
 
     const data       = require('./src/data');
 
