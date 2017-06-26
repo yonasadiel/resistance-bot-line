@@ -230,7 +230,7 @@ module.exports = {
 
     let name = this.user_session.name;
     for (var i = this.indexOfPlayer(); i<this.group_session.players.length-1; i++) {
-      this.group_session.players[i] = this.group_session.players[i+1];
+      this.group_session.players[i] = this.group_session.players[parseInt(i)+1];
     }
     this.group_session.players.pop();
     this.user_session.status = 'inactive';
@@ -612,8 +612,8 @@ module.exports = {
 
   sendPlayerList : function() {
     let reply_text = 'List of player(s):\n';
-    for (var i in this.group_session.players) {
-      let num = i + 1;
+    for (var i = 0; i < this.group_session.players.length; i++) {
+      let num = parseInt(i) + 1;
       reply_text += '' + num + '. ' + this.group_session.players[i].name + '\n';
     }
 
