@@ -22,6 +22,7 @@ app.post('/line_webhook', line.middleware(config), (req, res) => {
 
 const client = new line.Client(config);
 function handleEvent(event) {
+    console.log(JSON.stringify(event));
   if (event.type !== 'message' || event.message.type !== 'text') {
     return Promise.resolve(null);
   }
@@ -30,7 +31,6 @@ function handleEvent(event) {
   if (event.message.text.startsWith(config.commandSymbol)) {
 
     var args = event.message.text.split(" ");
-    console.log(JSON.stringify(args));
 
     const data       = require('./src/data');
 
