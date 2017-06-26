@@ -612,10 +612,10 @@ module.exports = {
 
   sendPlayerList : function() {
     let reply_text = 'List of player(s):\n';
-    this.group_session.players.forEach(function(item, index) {
-      let num = index + 1;
-      reply_text += '' + num + '. ' + item.name + '\n';
-    });
+    for (var i in this.group_session.players) {
+      let num = i + 1;
+      reply_text += '' + num + '. ' + this.group_session.players[i].name + '\n';
+    }
 
     return reply_text;
   },
