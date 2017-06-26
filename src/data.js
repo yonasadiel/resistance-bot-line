@@ -12,7 +12,7 @@ module.exports = {
     this.args   = args;
 
     if (! this.event.source.hasOwnProperty('userId')) {
-      return this.sendResponse('This bot only support LINE version 7.5.0 or higher');
+      return this.sendResponse('This bot only support LINE version 7.5.0 or higher.\nTry updating, block, and re-add this bot.');
     }
 
     this.searchUser(this.event.source.userId);

@@ -410,7 +410,7 @@ module.exports = {
     if (this.indexOfPlayer() === -1) {
       return this.sendResponse('You are not registered in this game.');
     }
-    
+
     this.endGame();
   },
 
@@ -447,7 +447,7 @@ module.exports = {
     for (var i = 0; i<this.group_session.players.length; i++) {
       index.push(i);
     }
-    index = shuffleArray(index);
+    index = this.shuffleArray(index);
     for (var i = 0; i<numOfSpy[this.group_session.players.length]; i++) {
       this.group_session.players[index[i]].role = 'spy';
     }
