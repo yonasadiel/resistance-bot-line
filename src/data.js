@@ -78,9 +78,11 @@ module.exports = {
     url          += '&action=saveUser';
     url          += '&data=' + JSON.stringify(user_session);
 
-    request (url, function(error, response, body) {
-      this.forwardProcess();
-    });
+    request (url, this.saveUserDataInitialCallback.bind(this));
+  },
+
+  saveUserDataInitialCallback : function(error, response, body) {
+    this.forwardProcess();
   },
 
   forwardProcess : function() {
