@@ -111,9 +111,11 @@ module.exports = {
     let reply_text = 'You are a ' + role + '\n';
     if (role === 'spy') {
       reply_text += 'The other spy(es) are:\n';
-      this.group_session.players.forEach(function(item, index) {
-        reply_text += '- ' + item.name + '\n';
-      });
+      for (var i in this.group_session.players) {
+        if (this.group_session.players[i].role === 'spy') {
+          reply_text += '- ' + this.group_session.players[i].name + '\n';
+        }
+      }
     }
 
     this.sendResponse(reply_text);

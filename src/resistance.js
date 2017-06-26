@@ -280,7 +280,7 @@ module.exports = {
         return this.sendResponse('Its not choosing time');
       }
     }
-    if (this.indexOfPlayer() !== this.group_session.captain) {
+    if (this.indexOfPlayer() != this.group_session.captain) {
       return this.sendResponse('You are not the captain');
     }
 
