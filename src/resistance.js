@@ -300,7 +300,7 @@ module.exports = {
       }
     });
 
-    if (count_chosen_player === numOfTeam[this.group_session.length][this.group_session.round]) {
+    if (count_chosen_player === numOfTeam[this.group_session.players.length][this.group_session.round]) {
       return this.startVote();
     } else {
       this.saveGroupData();
