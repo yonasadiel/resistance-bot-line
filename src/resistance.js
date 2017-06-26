@@ -460,7 +460,7 @@ module.exports = {
 
   searchChosenPlayer : function() {
     let chosen_player_name = '';
-    args.forEach(function(item, index) {
+    this.args.forEach(function(item, index) {
       if (index !== 0) {
         if (index !== 1) {
           chosen_player_name += ' ';
