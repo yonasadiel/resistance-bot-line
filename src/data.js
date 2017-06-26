@@ -65,8 +65,7 @@ module.exports = {
         .getProfile(this.user_session.id)
         .then((profile) => {
           this.user_session.name = profile.displayName;
-          this.saveUserData(this.user_session);
-          this.forwardProcess();
+          this.saveUserDataInitial(this.user_session);
         });
     } else {
       this.saveUserDataInitial(this.user_session);
