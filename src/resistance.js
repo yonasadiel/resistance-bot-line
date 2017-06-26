@@ -227,6 +227,9 @@ module.exports = {
     } else if (this.group_session.state !== 'new') {
       return this.sendResponse('Game is already running');
     }
+    if (this.indexOfPlayer() === -1) {
+      return.sendResponse('You are not registered');
+    }
 
     let name = this.user_session.name;
     for (var i = this.indexOfPlayer(); i<this.group_session.players.length-1; i++) {
