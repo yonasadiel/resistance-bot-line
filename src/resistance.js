@@ -228,7 +228,7 @@ module.exports = {
       return this.sendResponse('Game is already running');
     }
     if (this.indexOfPlayer() === -1) {
-      return.sendResponse('You are not registered');
+      return this.sendResponse('You are not registered');
     }
 
     let name = this.user_session.name;
