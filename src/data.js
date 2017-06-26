@@ -10,6 +10,7 @@ module.exports = {
     this.client = client;
     this.event  = event;
     this.args   = args;
+    console.log(this.event.source);
 
     this.searchUser(this.event.source.userId);
   },

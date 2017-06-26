@@ -407,8 +407,11 @@ module.exports = {
   },
 
   stopCommand : function() {
+    if (this.indexOfPlayer() === -1) {
+      return this.sendResponse('You are not registered in this game.');
+    }
+    
     this.endGame();
-    //
   },
 
   roleCommand : function() {
