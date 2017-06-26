@@ -289,7 +289,7 @@ module.exports = {
       return this.sendResponse('Player has been selected.');
     }
 
-    this.group_session.players.[chosen_player_index].mission = 'pending';
+    this.group_session.players[chosen_player_index].mission = 'pending';
 
     let count_chosen_player = 0;
     this.group_session.players.forEach(function(item, index) {
