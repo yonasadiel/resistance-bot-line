@@ -62,8 +62,8 @@ module.exports = {
       this.client
         .getProfile(this.user_session.id)
         .then((profile) =>{
-          this.saveUserData(this.user_session);
           this.user_session.name = profile.displayName;
+          this.saveUserData(this.user_session);
           this.forwardProcess();
         });
     } else {
@@ -116,6 +116,13 @@ module.exports = {
 
       this.saveUserData(reset_player);
     }
+  },
+
+  sendResponse : function(text) {
+    return this.client.replyMessage(this.event.replyToken,{
+      type : "text",
+      text : text,
+    });
   },
 	
 }

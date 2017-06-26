@@ -571,13 +571,14 @@ module.exports = {
     this.saveGroupData();
 
     let cnt = 1;
-    let reply_text = '';
+    let reply_text = 'Game ended.\n';
     if (this.group_session.score.spy === 3) {
       reply_text += 'Spies win the game!\n';
+      reply_text += 'The spies are:\n';
     } else if (this.group_session.score.resistance === 3) {
       reply_text += 'Resistance wins the game!\n';
+      reply_text += 'The spies are:\n';
     }
-    reply_text += 'The spies are:\n';
     this.group_session.players.forEach(function(item, index) {
       if (item.role === 'spy') {
         reply_text += '' + cnt + '. ' + item.name + '\n';
