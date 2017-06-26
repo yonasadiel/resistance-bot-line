@@ -343,7 +343,7 @@ module.exports = {
     if (this.group_session.players[this.indexOfPlayer()].vote === 'done') {
       return this.sendResponse(this.user_session.name + ', you have cast your vote');
     }
-    if (this.args[1] !== 'agree' && this.args[1].disagree !== 'disagree') {
+    if (this.args[1] !== 'agree' && this.args[1] !== 'disagree') {
       return this.sendResponse('Invalid vote from ' + this.user_session.name);
     }
 
