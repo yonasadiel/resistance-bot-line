@@ -94,7 +94,7 @@ module.exports = {
       this.group_session.mission.success++;
     }
 
-    this.group_session[index].mission = 'done';
+    this.group_session.players[index].mission = 'done';
 
     this.saveGroupData();
 
